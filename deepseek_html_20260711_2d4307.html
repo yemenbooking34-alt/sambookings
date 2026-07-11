@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>اتفاقية ترخيص المستخدم النهائي (EULA) - سام للحجوزات</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Tahoma', Arial, sans-serif;
+      background: #f0f4f9;
+      color: #1a2332;
+      line-height: 1.9;
+      padding: 25px 18px;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 25px 60px -15px rgba(0, 20, 50, 0.3);
+      padding: 40px 45px;
+      transition: 0.3s;
+    }
+
+    /* ===== HEADER ===== */
+    .app-header {
+      border-bottom: 3px solid #eef2f7;
+      padding-bottom: 22px;
+      margin-bottom: 30px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: #1a5cff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .back-link i {
+      margin-left: 6px;
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-header .icon-big {
+      font-size: 2.8rem;
+      color: #1a5cff;
+      background: #e6edfe;
+      padding: 16px;
+      border-radius: 20px;
+    }
+
+    .brand-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0b1a33;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-header h1 span {
+      color: #1a5cff;
+    }
+
+    .brand-header .sub {
+      color: #5a6f8a;
+      font-size: 1rem;
+      margin-top: 4px;
+      width: 100%;
+    }
+
+    .badge-version {
+      background: #1a5cff;
+      color: #fff;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-right: auto;
+    }
+
+    /* ===== DEVELOPER INFO ===== */
+    .developer-bar {
+      background: #f8faff;
+      padding: 10px 20px;
+      border-radius: 40px;
+      margin: 16px 0 24px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: #2d3e56;
+      border: 1px solid #e8edf4;
+    }
+
+    .developer-bar i {
+      color: #1a5cff;
+      margin-left: 4px;
+    }
+
+    .developer-bar strong {
+      color: #0b1a33;
+    }
+
+    .developer-bar .divider-dot {
+      color: #c0d0e0;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #0b1a33;
+      margin: 35px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-right: 5px solid #1a5cff;
+      padding-right: 20px;
+    }
+
+    h2 i {
+      color: #1a5cff;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0b1a33;
+      margin: 28px 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h3 .num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a5cff;
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 0.95rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    h3 i {
+      color: #1a5cff;
+      font-size: 1.2rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e2a3e;
+      margin: 18px 0 8px 0;
+    }
+
+    p {
+      margin-bottom: 14px;
+      color: #2d3e56;
+    }
+
+    /* ===== LISTS ===== */
+    ul {
+      padding-right: 28px;
+      margin-bottom: 18px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      color: #2d3e56;
+    }
+
+    ul ul {
+      margin-top: 4px;
+      margin-bottom: 6px;
+      padding-right: 20px;
+    }
+
+    /* ===== HIGHLIGHT BOXES ===== */
+    .highlight-box {
+      background: #f8faff;
+      border: 1px solid #dce7fd;
+      border-right: 5px solid #1a5cff;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin: 25px 0;
+    }
+
+    .highlight-box i {
+      color: #1a5cff;
+      margin-left: 8px;
+    }
+
+    .warning-box {
+      background: #fff8f0;
+      border: 1px solid #fde8d0;
+      border-right: 5px solid #f5a623;
+      border-radius: 16px;
+      padding: 18px 24px;
+      margin: 20px 0;
+    }
+
+    .warning-box i {
+      color: #f5a623;
+      margin-left: 8px;
+    }
+
+    .success-box {
+      background: #f0faf4;
+      border: 1px solid #c8e6d9;
+      border-right: 5px solid #27ae60;
+      border-radius: 16px;
+      padding: 22px 28px;
+      margin: 30px 0 20px 0;
+      text-align: center;
+    }
+
+    .success-box i {
+      color: #27ae60;
+      font-size: 1.8rem;
+      margin-left: 10px;
+    }
+
+    .success-box p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0b1a33;
+      margin-bottom: 4px;
+    }
+
+    .success-box .sub-text {
+      font-weight: 400;
+      font-size: 0.95rem;
+      color: #2d3e56;
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider-light {
+      height: 1px;
+      background: linear-gradient(to left, #e2e8f0, transparent);
+      margin: 30px 0;
+    }
+
+    /* ===== TABLE OF CONTENTS ===== */
+    .toc {
+      background: #f8faff;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin: 20px 0 30px 0;
+      border: 1px solid #e8edf4;
+    }
+
+    .toc h4 {
+      margin-top: 0;
+      color: #1a5cff;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 25px;
+      margin-top: 8px;
+    }
+
+    .toc-grid a {
+      color: #2d3e56;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-grid a:hover {
+      color: #1a5cff;
+      text-decoration: underline;
+    }
+
+    .toc-grid a .num-small {
+      color: #1a5cff;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-main {
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 3px solid #eef2f7;
+      text-align: center;
+      color: #5a6f8a;
+    }
+
+    .footer-main .contact-info {
+      background: #f5f8fc;
+      padding: 12px 24px;
+      border-radius: 40px;
+      display: inline-block;
+      margin: 8px 0;
+    }
+
+    .footer-main .contact-info i {
+      color: #1a5cff;
+      margin: 0 4px;
+    }
+
+    .footer-main strong {
+      color: #0b1a33;
+    }
+
+    .btn-print {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 28px;
+      background: #1a5cff;
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+      text-decoration: none;
+    }
+
+    .btn-print:hover {
+      background: #0d4ad9;
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(26, 92, 255, 0.3);
+    }
+
+    .btn-print i {
+      margin-left: 6px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 22px 18px;
+        border-radius: 20px;
+      }
+
+      .brand-header h1 {
+        font-size: 1.6rem;
+      }
+
+      .brand-header .icon-big {
+        font-size: 2rem;
+        padding: 12px;
+      }
+
+      .badge-version {
+        margin-right: 0;
+        margin-top: 6px;
+      }
+
+      .developer-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 14px 18px;
+        border-radius: 16px;
+      }
+
+      .developer-bar .divider-dot {
+        display: none;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .success-box p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 14px 12px;
+      }
+
+      .brand-header h1 {
+        font-size: 1.3rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+        padding-right: 12px;
+      }
+
+      h3 .num-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+      }
+
+      .success-box {
+        padding: 16px 18px;
+      }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body {
+        background: #fff;
+        padding: 10px;
+      }
+      .container {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+      }
+      .back-link,
+      .btn-print {
+        display: none !important;
+      }
+      .badge-version {
+        background: #333;
+        color: #fff;
+      }
+      .success-box {
+        border: 2px solid #27ae60;
+        background: #f0faf4;
+      }
+      .toc {
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+      }
+      .developer-bar {
+        border: 1px solid #ddd;
+        background: #f9f9f9;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ============================== -->
+  <!-- HEADER -->
+  <!-- ============================== -->
+  <header class="app-header">
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+
+    <div class="brand-header">
+      <span class="icon-big"><i class="fas fa-file-signature"></i></span>
+      <div>
+        <h1>اتفاقية <span>EULA</span></h1>
+        <div class="sub">اتفاقية ترخيص المستخدم النهائي <span style="color:#8a9bb0;font-size:0.85rem;">| End User License Agreement</span></div>
+      </div>
+      <span class="badge-version"><i class="fas fa-calendar-alt"></i> آخر تحديث: 2025-02-07</span>
+    </div>
+
+    <div class="developer-bar">
+      <span><i class="fas fa-user-cog"></i> المطور: <strong>عادل صالح أحمد الجودة</strong></span>
+      <span class="divider-dot">|</span>
+      <span><i class="fas fa-envelope"></i> admin@sambookings.com</span>
+      <span class="divider-dot">|</span>
+      <span><i class="fas fa-mobile-alt"></i> تطبيق <strong>سام للحجوزات</strong></span>
+    </div>
+  </header>
+
+  <!-- ============================== -->
+  <!-- INTRODUCTION -->
+  <!-- ============================== -->
+  <div class="highlight-box">
+    <i class="fas fa-info-circle"></i>
+    <strong>تنبيه هام:</strong> يرجى قراءة هذه الاتفاقية بعناية قبل استخدام تطبيق <strong>سام للحجوزات</strong>.
+    باستخدامك للتطبيق، فإنك تقر بموافقتك الكاملة على جميع الشروط والأحكام الواردة في هذه الاتفاقية.
+  </div>
+
+  <!-- ============================== -->
+  <!-- TABLE OF CONTENTS -->
+  <!-- ============================== -->
+  <div class="toc">
+    <h4><i class="fas fa-list-ul"></i> محتويات الاتفاقية</h4>
+    <div class="toc-grid">
+      <a href="#sec1"><span class="num-small">1.</span> التعريفات</a>
+      <a href="#sec2"><span class="num-small">2.</span> نطاق الترخيص</a>
+      <a href="#sec3"><span class="num-small">3.</span> ملكية التطبيق</a>
+      <a href="#sec4"><span class="num-small">4.</span> شروط الاستخدام</a>
+      <a href="#sec5"><span class="num-small">5.</span> الحجز والدفع</a>
+      <a href="#sec6"><span class="num-small">6.</span> الإلغاء وعدم الحضور</a>
+      <a href="#sec7"><span class="num-small">7.</span> حدود المسؤولية</a>
+      <a href="#sec8"><span class="num-small">8.</span> إيقاف أو إنهاء الاستخدام</a>
+      <a href="#sec9"><span class="num-small">9.</span> التعديلات على الاتفاقية</a>
+      <a href="#sec10"><span class="num-small">10.</span> القانون الحاكم</a>
+      <a href="#sec11"><span class="num-small">11.</span> التواصل</a>
+    </div>
+  </div>
+
+  <div class="divider-light"></div>
+
+  <!-- ============================== -->
+  <!-- SECTION 1: DEFINITIONS -->
+  <!-- ============================== -->
+  <h2 id="sec1"><i class="fas fa-book-open"></i> 1. التعريفات</h2>
+  <ul>
+    <li><strong>التطبيق:</strong> تطبيق <strong>سام للحجوزات</strong> وجميع خدماته الرقمية، بما في ذلك الموقع الإلكتروني والتطبيق المحمول.</li>
+    <li><strong>المستخدم:</strong> أي شخص يقوم بتحميل أو استخدام التطبيق، سواء كان عميلاً أو زائراً.</li>
+    <li><strong>مزود الخدمة:</strong> أي جهة أو فرد يقدم خدمات عبر التطبيق (فنادق، شاليهات، سيارات، صالات مناسبات، منتجعات، حدائق).</li>
+    <li><strong>الإدارة:</strong> الجهة المالكة والمشغلة لتطبيق <strong>سام للحجوزات</strong>، والمتمثلة في <strong>عادل صالح أحمد الجودة</strong>.</li>
+    <li><strong>الخدمة:</strong> أي خدمة يتم حجزها عبر التطبيق، بما في ذلك الإقامة، النقل، الفعاليات، وغيرها.</li>
+    <li><strong>الحجز:</strong> عملية حجز خدمة معينة عبر التطبيق من قبل المستخدم.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 2: LICENSE SCOPE -->
+  <!-- ============================== -->
+  <h2 id="sec2"><i class="fas fa-check-circle"></i> 2. نطاق الترخيص</h2>
+  <p>تمنح إدارة تطبيق <strong>سام للحجوزات</strong> المستخدم <strong>ترخيصًا محدودًا، غير حصري، وغير قابل للتحويل</strong> لاستخدام التطبيق للأغراض الشخصية فقط، ووفقًا لما هو منصوص عليه في هذه الاتفاقية.</p>
+  <ul>
+    <li>لا يجوز للمستخدم نقل هذا الترخيص إلى أي طرف آخر.</li>
+    <li>لا يجوز استخدام التطبيق لأي أغراض تجارية دون موافقة خطية مسبقة من الإدارة.</li>
+    <li>يحتفظ التطبيق بجميع الحقوق غير الممنوحة صراحةً في هذه الاتفاقية.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 3: OWNERSHIP -->
+  <!-- ============================== -->
+  <h2 id="sec3"><i class="fas fa-copyright"></i> 3. ملكية التطبيق</h2>
+  <p>جميع الحقوق الفكرية المتعلقة بالتطبيق، بما في ذلك <strong>التصميم، المحتوى، الشعارات، العلامات التجارية، والبرمجيات</strong>، مملوكة لتطبيق <strong>سام للحجوزات</strong>، ولا يجوز نسخها أو إعادة استخدامها أو توزيعها دون إذن كتابي مسبق من الإدارة.</p>
+  <ul>
+    <li>يحظر تفكيك التطبيق أو هندسته العكسية أو محاولة استخراج كود المصدر.</li>
+    <li>جميع المحتويات المعروضة في التطبيق محمية بموجب قوانين حقوق النشر والعلامات التجارية.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 4: TERMS OF USE -->
+  <!-- ============================== -->
+  <h2 id="sec4"><i class="fas fa-gavel"></i> 4. شروط الاستخدام</h2>
+  <p>يوافق المستخدم على:</p>
+  <ul>
+    <li>استخدام التطبيق لأغراض <strong>قانونية</strong> فقط، وبما يتوافق مع القوانين والأنظمة المحلية والدولية.</li>
+    <li>عدم إساءة استخدام التطبيق أو محاولة <strong>اختراقه</strong> أو تعطيله أو العبث بمحتواه.</li>
+    <li>تقديم معلومات <strong>صحيحة ودقيقة</strong> عند التسجيل والحجز، وتحديثها عند الحاجة.</li>
+    <li>عدم استخدام التطبيق بأي طريقة تضر بمزودي الخدمات أو المستخدمين الآخرين.</li>
+    <li>عدم انتحال شخصية أي فرد أو جهة أخرى.</li>
+    <li>عدم تحميل أو نشر أي محتوى ضار أو فيروسات أو برمجيات خبيثة.</li>
+  </ul>
+
+  <div class="warning-box">
+    <i class="fas fa-exclamation-triangle"></i>
+    <strong>تنبيه:</strong> مخالفة أي من شروط الاستخدام قد تؤدي إلى <strong>إنهاء حسابك</strong> واتخاذ الإجراءات القانونية المناسبة.
+  </div>
+
+  <!-- ============================== -->
+  <!-- SECTION 5: BOOKING & PAYMENT -->
+  <!-- ============================== -->
+  <h2 id="sec5"><i class="fas fa-credit-card"></i> 5. الحجز والدفع</h2>
+  <ul>
+    <li>يعمل التطبيق ك<strong>وسيط إلكتروني</strong> بين المستخدم ومزودي الخدمة، وليس طرفاً في عقد تقديم الخدمة.</li>
+    <li>الأسعار يتم تحديدها من قبل <strong>مزودي الخدمة</strong>، والتطبيق يعرضها كما هي مع إضافة العمولة الخاصة به.</li>
+    <li>يدعم التطبيق وسائل الدفع التالية:
+      <ul>
+        <li><strong>كريمي</strong> (Kuraimi) — شبكة الصرافين اليمنية.</li>
+        <li><strong>جميع المحافظ الإلكترونية اليمنية</strong> المتاحة.</li>
+        <li><strong>الدفع النقدي (كاش)</strong> وفق الشروط الموضحة أدناه.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3><i class="fas fa-money-bill-wave"></i> الدفع النقدي (كاش)</h3>
+  <div class="highlight-box">
+    <i class="fas fa-info-circle"></i>
+    <strong>آلية الدفع النقدي:</strong>
+  </div>
+  <ul>
+    <li>في حال اختيار الدفع النقدي، يلتزم المستخدم بدفع <strong>مبلغ مقدم</strong> يتم تحديده من قبل التطبيق أو مزود الخدمة، وذلك لتأكيد الحجز.</li>
+    <li>يتم دفع المبلغ المقدم عن طريق التحويل عبر وسائل الدفع الإلكترونية المعتمدة.</li>
+    <li>يهدف المبلغ المقدم إلى <strong>الحد من التلاعب</strong> وإثبات جدية المستخدم في إتمام الحجز.</li>
+    <li><strong>لا يتم تأكيد الحجز نهائيًا</strong> إلا بعد استلام المبلغ المقدم وتسجيله في النظام.</li>
+    <li>يخضع المبلغ المقدم لسياسة الإلغاء والاسترجاع المعتمدة في التطبيق.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 6: CANCELLATION & NO-SHOW -->
+  <!-- ============================== -->
+  <h2 id="sec6"><i class="fas fa-undo-alt"></i> 6. الإلغاء وعدم الحضور</h2>
+  <ul>
+    <li>تخضع عمليات الإلغاء والاسترجاع ل<strong>سياسات الإلغاء المعتمدة</strong> في التطبيق، والتي يتم عرضها قبل تأكيد الحجز.</li>
+    <li>في حال عدم حضور المستخدم دون إلغاء مسبق، <strong>قد لا يحق له استرجاع</strong> أي مبالغ مدفوعة.</li>
+    <li>مزود الخدمة ملزم بإبلاغ إدارة التطبيق بعدم حضور العميل خلال مدة لا تتجاوز <strong>24 ساعة</strong> من موعد الخدمة.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 7: LIMITATION OF LIABILITY -->
+  <!-- ============================== -->
+  <h2 id="sec7"><i class="fas fa-shield-alt"></i> 7. حدود المسؤولية</h2>
+  <ul>
+    <li>تطبيق <strong>سام للحجوزات</strong> لا يقدم الخدمات بشكل مباشر، وإنما يعمل ك<strong>وسيط</strong> فقط بين المستخدم ومزود الخدمة.</li>
+    <li>لا يتحمل التطبيق أي مسؤولية عن <strong>جودة أو تنفيذ</strong> الخدمات المقدمة من مزودي الخدمة.</li>
+    <li>لا يتحمل التطبيق أي <strong>أضرار</strong> ناتجة عن سوء استخدام التطبيق أو انقطاع الخدمة.</li>
+    <li>لا يتحمل التطبيق مسؤولية أي <strong>نزاع</strong> ينشأ بين المستخدم ومزود الخدمة.</li>
+    <li>في أي حال، تكون مسؤولية التطبيق <strong>محدودة</strong> بقيمة العمولة التي حصل عليها من الحجز محل النزاع.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 8: TERMINATION -->
+  <!-- ============================== -->
+  <h2 id="sec8"><i class="fas fa-ban"></i> 8. إيقاف أو إنهاء الاستخدام</h2>
+
+  <h3><i class="fas fa-user"></i> المستخدم</h3>
+  <ul>
+    <li>يحق لإدارة التطبيق <strong>تعليق أو إنهاء</strong> ترخيص المستخدم في حال مخالفة هذه الاتفاقية أو السياسات المعتمدة دون إشعار مسبق.</li>
+    <li>يحق للمستخدم إنهاء حسابه في أي وقت من خلال إعدادات التطبيق.</li>
+  </ul>
+
+  <h3><i class="fas fa-building"></i> مزودو الخدمة</h3>
+  <ul>
+    <li>يلتزم مزود الخدمة بسداد <strong>عمولة التطبيق</strong> المستحقة عن الحجوزات وفق النسبة المتفق عليها (15% من قيمة الحجز).</li>
+    <li>في حال عدم سداد العمولة، يحق لإدارة التطبيق <strong>إيقاف عرض خدمات</strong> مزود الخدمة مؤقتًا.</li>
+    <li>تمنح إدارة التطبيق مزود الخدمة <strong>مهلة لا تتجاوز شهرين</strong> من تاريخ الاستحقاق لسداد العمولة.</li>
+    <li>في حال عدم السداد خلال المهلة المحددة، يحق للتطبيق <strong>إيقاف الخدمة نهائيًا</strong> وإغلاق حساب مزود الخدمة دون أي مسؤولية قانونية.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 9: AMENDMENTS -->
+  <!-- ============================== -->
+  <h2 id="sec9"><i class="fas fa-edit"></i> 9. التعديلات على الاتفاقية</h2>
+  <ul>
+    <li>تحتفظ إدارة تطبيق <strong>سام للحجوزات</strong> بحق <strong>تعديل</strong> هذه الاتفاقية في أي وقت.</li>
+    <li>يتم إشعار المستخدمين بأي تغييرات جوهرية عبر التطبيق أو البريد الإلكتروني.</li>
+    <li>يعد <strong>استمرار استخدام التطبيق</strong> بعد التعديلات موافقة ضمنية على النسخة المعدلة.</li>
+    <li>آخر تحديث لهذه الاتفاقية هو <strong>2025-02-07</strong>.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 10: GOVERNING LAW -->
+  <!-- ============================== -->
+  <h2 id="sec10"><i class="fas fa-balance-scale"></i> 10. القانون الحاكم</h2>
+  <ul>
+    <li>تخضع هذه الاتفاقية وتفسر وفقًا للقوانين والأنظمة المعمول بها في <strong>الجمهورية اليمنية</strong>.</li>
+    <li>في حال وجود أي نزاع، يتم اللجوء إلى المحاكم المختصة في اليمن.</li>
+    <li>إذا تعارض أي بند من بنود هذه الاتفاقية مع القوانين المحلية، يتم تعديل ذلك البند فقط مع بقاء باقي البنود سارية.</li>
+  </ul>
+
+  <!-- ============================== -->
+  <!-- SECTION 11: CONTACT -->
+  <!-- ============================== -->
+  <h2 id="sec11"><i class="fas fa-headset"></i> 11. التواصل</h2>
+  <p>للاستفسارات المتعلقة بهذه الاتفاقية، يمكنكم التواصل معنا عبر:</p>
+  <ul>
+    <li><strong>البريد الإلكتروني:</strong> admin@sambookings.com</li>
+    <li><strong>من خلال التطبيق:</strong> قسم الدعم الفني داخل التطبيق.</li>
+    <li><strong>وسائل التواصل الاجتماعي:</strong> الصفحات الرسمية لتطبيق سام للحجوزات.</li>
+  </ul>
+  <p>نحن نحرص على الرد على جميع الاستفسارات في أقرب وقت ممكن.</p>
+
+  <!-- ============================== -->
+  <!-- DIVIDER -->
+  <!-- ============================== -->
+  <div class="divider-light"></div>
+
+  <!-- ============================== -->
+  <!-- FINAL ACCEPTANCE -->
+  <!-- ============================== -->
+  <div class="success-box">
+    <div>
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <p>✅ باستخدامك لتطبيق <strong>سام للحجوزات</strong></p>
+    <p class="sub-text">فإنك تقر بأنك قرأت وفهمت ووافقت على جميع بنود <strong>اتفاقية ترخيص المستخدم النهائي (EULA)</strong> المذكورة أعلاه.</p>
+  </div>
+
+  <!-- ============================== -->
+  <!-- FOOTER -->
+  <!-- ============================== -->
+  <footer class="footer-main">
+    <p>
+      <strong>سام للحجوزات</strong> — منصة حجوزات إلكترونية وسيطة
+    </p>
+    <div class="contact-info">
+      <i class="fas fa-user-cog"></i> المطور: <strong>عادل صالح أحمد الجودة</strong>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <i class="fas fa-envelope"></i> admin@sambookings.com
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <i class="fas fa-mobile-alt"></i> دعم فني متواصل
+    </div>
+    <p style="margin-top:12px; font-size:0.85rem; color:#8a9bb0;">
+      © 2025 جميع الحقوق محفوظة — آخر تحديث: 2025-02-07
+    </p>
+    <div style="margin-top:10px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="privacy.html" style="color:#1a5cff; text-decoration:none; font-size:0.9rem;">
+        <i class="fas fa-lock"></i> سياسة الخصوصية
+      </a>
+      <span style="color:#c0d0e0;">|</span>
+      <a href="terms.html" style="color:#1a5cff; text-decoration:none; font-size:0.9rem;">
+        <i class="fas fa-gavel"></i> الشروط والأحكام
+      </a>
+      <span style="color:#c0d0e0;">|</span>
+      <a href="index.html" style="color:#1a5cff; text-decoration:none; font-size:0.9rem;">
+        <i class="fas fa-home"></i> الرئيسية
+      </a>
+    </div>
+    <div style="margin-top:14px;">
+      <button class="btn-print" onclick="window.print()">
+        <i class="fas fa-print"></i> طباعة الاتفاقية
+      </button>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
