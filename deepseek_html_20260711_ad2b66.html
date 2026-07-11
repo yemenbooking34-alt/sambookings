@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>السياسات الرسمية - سام للحجوزات</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Tahoma', Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f4f9 0%, #e8edf6 100%);
+      color: #1a2332;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .container {
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 40px;
+      box-shadow: 0 30px 80px -20px rgba(0, 20, 50, 0.35);
+      padding: 50px 55px;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ===== DECORATIVE TOP BAR ===== */
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(to left, #1a5cff, #6c8cff, #1a5cff);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* ===== HEADER ===== */
+    .app-header {
+      text-align: center;
+      padding-bottom: 30px;
+      margin-bottom: 35px;
+      border-bottom: 3px solid #eef2f7;
+    }
+
+    .app-header .icon-main {
+      font-size: 4rem;
+      color: #1a5cff;
+      background: #e6edfe;
+      padding: 20px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .app-header h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #0b1a33;
+      letter-spacing: -0.5px;
+    }
+
+    .app-header h1 span {
+      color: #1a5cff;
+    }
+
+    .app-header .subtitle {
+      color: #5a6f8a;
+      font-size: 1.1rem;
+      margin-top: 6px;
+    }
+
+    .app-header .developer-info {
+      margin-top: 14px;
+      background: #f8faff;
+      padding: 10px 24px;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.95rem;
+      color: #2d3e56;
+      border: 1px solid #e8edf4;
+    }
+
+    .app-header .developer-info i {
+      color: #1a5cff;
+      margin-left: 6px;
+    }
+
+    .app-header .developer-info strong {
+      color: #0b1a33;
+    }
+
+    /* ===== LAST UPDATED BADGE ===== */
+    .update-badge {
+      display: inline-block;
+      background: #e8edf6;
+      color: #4a5b72;
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    .update-badge i {
+      color: #1a5cff;
+      margin-left: 6px;
+    }
+
+    /* ===== INTRO TEXT ===== */
+    .intro-text {
+      background: #f8faff;
+      border-right: 5px solid #1a5cff;
+      padding: 20px 26px;
+      border-radius: 16px;
+      margin-bottom: 35px;
+      font-size: 1.05rem;
+      color: #2d3e56;
+      line-height: 1.8;
+    }
+
+    .intro-text strong {
+      color: #0b1a33;
+    }
+
+    .intro-text i {
+      color: #1a5cff;
+      margin-left: 8px;
+    }
+
+    /* ===== CARDS GRID ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+      margin: 30px 0 25px 0;
+    }
+
+    .policy-card {
+      background: #fafcff;
+      border: 2px solid #e8edf4;
+      border-radius: 24px;
+      padding: 30px 24px 28px;
+      text-decoration: none;
+      color: #1a2332;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .policy-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #1a5cff;
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
+      transform-origin: center;
+    }
+
+    .policy-card:hover {
+      transform: translateY(-6px);
+      border-color: #1a5cff;
+      box-shadow: 0 15px 40px -12px rgba(26, 92, 255, 0.2);
+    }
+
+    .policy-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .policy-card .card-icon {
+      font-size: 3rem;
+      width: 75px;
+      height: 75px;
+      background: #e6edfe;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a5cff;
+      margin-bottom: 16px;
+      transition: 0.3s;
+    }
+
+    .policy-card:hover .card-icon {
+      background: #1a5cff;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .policy-card .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0b1a33;
+      margin-bottom: 6px;
+    }
+
+    .policy-card .card-desc {
+      font-size: 0.9rem;
+      color: #5a6f8a;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .policy-card .card-arrow {
+      color: #1a5cff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.3s;
+    }
+
+    .policy-card:hover .card-arrow {
+      gap: 12px;
+    }
+
+    /* ===== SPECIAL CARD VARIATIONS ===== */
+    .policy-card.privacy .card-icon { color: #1a5cff; background: #e6edfe; }
+    .policy-card.privacy:hover .card-icon { background: #1a5cff; color: #fff; }
+
+    .policy-card.terms .card-icon { color: #f5a623; background: #fef5e6; }
+    .policy-card.terms:hover .card-icon { background: #f5a623; color: #fff; }
+    .policy-card.terms { border-color: #fef0dc; }
+    .policy-card.terms:hover { border-color: #f5a623; }
+    .policy-card.terms::after { background: #f5a623; }
+
+    .policy-card.eula .card-icon { color: #27ae60; background: #e8f5ee; }
+    .policy-card.eula:hover .card-icon { background: #27ae60; color: #fff; }
+    .policy-card.eula { border-color: #dcedd9; }
+    .policy-card.eula:hover { border-color: #27ae60; }
+    .policy-card.eula::after { background: #27ae60; }
+
+    .policy-card.all .card-icon { color: #8b5cf6; background: #f0ebff; }
+    .policy-card.all:hover .card-icon { background: #8b5cf6; color: #fff; }
+    .policy-card.all { border-color: #ece4ff; }
+    .policy-card.all:hover { border-color: #8b5cf6; }
+    .policy-card.all::after { background: #8b5cf6; }
+
+    /* ===== BADGE ===== */
+    .policy-card .badge-new {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #1a5cff;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .policy-card.terms .badge-new { background: #f5a623; }
+    .policy-card.eula .badge-new { background: #27ae60; }
+    .policy-card.all .badge-new { background: #8b5cf6; }
+
+    /* ===== DIVIDER ===== */
+    .divider-light {
+      height: 2px;
+      background: linear-gradient(to left, #e2e8f0, transparent);
+      margin: 30px 0;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-main {
+      text-align: center;
+      color: #5a6f8a;
+      padding-top: 20px;
+    }
+
+    .footer-main .contact-info {
+      background: #f5f8fc;
+      padding: 12px 28px;
+      border-radius: 40px;
+      display: inline-block;
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    .footer-main .contact-info i {
+      color: #1a5cff;
+      margin: 0 4px;
+    }
+
+    .footer-main .contact-info .sep {
+      color: #c0d0e0;
+      margin: 0 6px;
+    }
+
+    .footer-main strong {
+      color: #0b1a33;
+    }
+
+    .footer-main .copyright {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #8a9bb0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 22px;
+        border-radius: 28px;
+      }
+
+      .app-header h1 {
+        font-size: 2rem;
+      }
+
+      .app-header .icon-main {
+        font-size: 3rem;
+        padding: 16px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .policy-card {
+        padding: 22px 18px 20px;
+      }
+
+      .policy-card .card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2.2rem;
+      }
+
+      .policy-card .card-title {
+        font-size: 1.05rem;
+      }
+
+      .intro-text {
+        font-size: 0.95rem;
+        padding: 16px 20px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px 14px;
+        border-radius: 20px;
+      }
+
+      .app-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .app-header .icon-main {
+        font-size: 2.2rem;
+        padding: 12px;
+      }
+
+      .app-header .developer-info {
+        font-size: 0.8rem;
+        padding: 6px 16px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .policy-card {
+        padding: 18px 16px;
+        flex-direction: row;
+        align-items: center;
+        text-align: right;
+        gap: 16px;
+      }
+
+      .policy-card .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+      }
+
+      .policy-card .card-content {
+        flex: 1;
+      }
+
+      .policy-card .badge-new {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: inline-block;
+        font-size: 0.55rem;
+        padding: 1px 10px;
+        margin-right: 8px;
+      }
+
+      .policy-card .card-arrow {
+        font-size: 0.8rem;
+      }
+
+      .footer-main .contact-info {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+      }
+
+      .footer-main .contact-info .sep {
+        display: none;
+      }
+
+      .intro-text {
+        font-size: 0.9rem;
+        padding: 14px 16px;
+      }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body {
+        background: #fff;
+        padding: 10px;
+      }
+      .container {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 30px;
+      }
+      .container::before { display: none; }
+      .policy-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      .policy-card::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ============================== -->
+  <!-- HEADER -->
+  <!-- ============================== -->
+  <header class="app-header">
+    <div class="icon-main">
+      <i class="fas fa-calendar-check"></i>
+    </div>
+    <h1>سام <span>للحجوزات</span></h1>
+    <p class="subtitle">السياسات الرسمية — الشروط والأحكام</p>
+
+    <div class="developer-info">
+      <i class="fas fa-user-cog"></i> المطور: <strong>عادل صالح أحمد الجودة</strong>
+      &nbsp;|&nbsp;
+      <i class="fas fa-envelope"></i> admin@sambookings.com
+    </div>
+
+    <div class="update-badge">
+      <i class="fas fa-clock"></i> آخر تحديث: 2025-02-07
+    </div>
+  </header>
+
+  <!-- ============================== -->
+  <!-- INTRO TEXT -->
+  <!-- ============================== -->
+  <div class="intro-text">
+    <i class="fas fa-info-circle"></i>
+    مرحباً بك في صفحة السياسات الرسمية لتطبيق <strong>سام للحجوزات</strong>.
+    يمكنك من خلال البطاقات أدناه الاطلاع على جميع السياسات والشروط المتعلقة باستخدام التطبيق.
+    ننصحك بقراءة جميع السياسات بعناية قبل البدء في استخدام التطبيق.
+  </div>
+
+  <!-- ============================== -->
+  <!-- CARDS GRID -->
+  <!-- ============================== -->
+  <div class="cards-grid">
+
+    <!-- CARD 1: PRIVACY -->
+    <a href="privacy.html" class="policy-card privacy">
+      <span class="badge-new">محدث</span>
+      <div class="card-icon">
+        <i class="fas fa-lock"></i>
+      </div>
+      <div class="card-content">
+        <div class="card-title">سياسة الخصوصية</div>
+        <div class="card-desc">كيفية جمع واستخدام وحماية بياناتك الشخصية</div>
+        <span class="card-arrow">
+          <i class="fas fa-arrow-left"></i> اقرأ المزيد
+        </span>
+      </div>
+    </a>
+
+    <!-- CARD 2: TERMS -->
+    <a href="terms.html" class="policy-card terms">
+      <span class="badge-new">مهم</span>
+      <div class="card-icon">
+        <i class="fas fa-gavel"></i>
+      </div>
+      <div class="card-content">
+        <div class="card-title">الشروط والأحكام</div>
+        <div class="card-desc">شروط استخدام التطبيق والالتزامات القانونية</div>
+        <span class="card-arrow">
+          <i class="fas fa-arrow-left"></i> اقرأ المزيد
+        </span>
+      </div>
+    </a>
+
+    <!-- CARD 3: EULA -->
+    <a href="eula.html" class="policy-card eula">
+      <span class="badge-new">جديد</span>
+      <div class="card-icon">
+        <i class="fas fa-file-signature"></i>
+      </div>
+      <div class="card-content">
+        <div class="card-title">اتفاقية EULA</div>
+        <div class="card-desc">اتفاقية ترخيص المستخدم النهائي — 11 بنداً</div>
+        <span class="card-arrow">
+          <i class="fas fa-arrow-left"></i> اقرأ المزيد
+        </span>
+      </div>
+    </a>
+
+    <!-- CARD 4: ALL POLICIES -->
+    <a href="policies.html" class="policy-card all">
+      <span class="badge-new">شامل</span>
+      <div class="card-icon">
+        <i class="fas fa-layer-group"></i>
+      </div>
+      <div class="card-content">
+        <div class="card-title">جميع السياسات</div>
+        <div class="card-desc">صفحة واحدة شاملة تحتوي على كل السياسات</div>
+        <span class="card-arrow">
+          <i class="fas fa-arrow-left"></i> اقرأ المزيد
+        </span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ============================== -->
+  <!-- DIVIDER -->
+  <!-- ============================== -->
+  <div class="divider-light"></div>
+
+  <!-- ============================== -->
+  <!-- QUICK LINKS -->
+  <!-- ============================== -->
+  <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin:10px 0 20px 0;">
+    <a href="privacy.html" style="color:#1a5cff; text-decoration:none; font-size:0.9rem; background:#f0f4fe; padding:6px 18px; border-radius:30px;">
+      <i class="fas fa-lock"></i> الخصوصية
+    </a>
+    <a href="terms.html" style="color:#f5a623; text-decoration:none; font-size:0.9rem; background:#fef5e6; padding:6px 18px; border-radius:30px;">
+      <i class="fas fa-gavel"></i> الشروط
+    </a>
+    <a href="eula.html" style="color:#27ae60; text-decoration:none; font-size:0.9rem; background:#e8f5ee; padding:6px 18px; border-radius:30px;">
+      <i class="fas fa-file-signature"></i> EULA
+    </a>
+    <a href="policies.html" style="color:#8b5cf6; text-decoration:none; font-size:0.9rem; background:#f0ebff; padding:6px 18px; border-radius:30px;">
+      <i class="fas fa-layer-group"></i> شامل
+    </a>
+  </div>
+
+  <!-- ============================== -->
+  <!-- FOOTER -->
+  <!-- ============================== -->
+  <footer class="footer-main">
+    <div class="contact-info">
+      <i class="fas fa-user-cog"></i> <strong>عادل صالح أحمد الجودة</strong>
+      <span class="sep">|</span>
+      <i class="fas fa-envelope"></i> admin@sambookings.com
+      <span class="sep">|</span>
+      <i class="fas fa-mobile-alt"></i> دعم فني متواصل
+    </div>
+    <p class="copyright">
+      © 2025 <strong>سام للحجوزات</strong> — جميع الحقوق محفوظة
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>
